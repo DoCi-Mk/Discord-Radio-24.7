@@ -39,8 +39,8 @@ client.on("ready", async () => {
     let channel = await client.channels.cache.get('VOICE-ID')
     let connection  = await channel.join()
     async function play(connection) {
-        const stream = ytdl(Music[Math.floor(Math.random() * Music.length)], { filter: "audioonly" })
-        const dispatcher = connection.play(stream)
+        const radio = ytdl(Music[Math.floor(Math.random() * Music.length)], { filter: "audioonly" })
+        const dispatcher = connection.play(radio)
         dispatcher.on("finish",async () => {
           await play(connection)
         })
